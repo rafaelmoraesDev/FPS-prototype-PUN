@@ -6,13 +6,14 @@ using Photon.Realtime;
 using TMPro;
 public class ConnectAndJoinRoom : MonoBehaviourPunCallbacks
 {
-    [SerializeField] TextMeshProUGUI _tmpFeedback;
-    [SerializeField] string _roomname;
-    void Start()
+    [SerializeField] private TextMeshProUGUI tmpFeedback;
+    [SerializeField] private string roomName;
+
+    private void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.GameVersion = "v0.1";
-        FeedBack("Connectando..");
+        FeedBack("Connectando...");
     }
 
     public override void OnConnectedToMaster()
@@ -26,7 +27,7 @@ public class ConnectAndJoinRoom : MonoBehaviourPunCallbacks
         FeedBack("Entrando na sala");
         RoomOptions ro = new RoomOptions();
         ro.MaxPlayers = 20;
-        PhotonNetwork.JoinOrCreateRoom(_roomname, ro,TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(roomName, ro, TypedLobby.Default);
     }
 
     public override void OnJoinedRoom()
@@ -34,10 +35,11 @@ public class ConnectAndJoinRoom : MonoBehaviourPunCallbacks
         FeedBack(string.Empty);
     }
 
-    void FeedBack(string message)
+    private void FeedBack(string message)
     {
-        if (!_tmpFeedback) return;
-        _tmpFeedback.text = message;
+        if (!tmpFeedback) return;
+        tmpFeedback.text = message;
     }
 
+   
 }

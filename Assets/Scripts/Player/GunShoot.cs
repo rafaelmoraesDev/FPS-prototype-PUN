@@ -12,9 +12,9 @@ public class GunShoot : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private SHOOTTYPE type;
     [SerializeField] private float cooldown = 0.2f;
-    [SerializeField] private float pointStartBullet;
     [SerializeField] private Animation animFire;
 
+    private AudioSource audioSrc;
     private Camera fpsCam;
     private bool incooldown = false;
     private float cooldownT = 0;
@@ -22,6 +22,7 @@ public class GunShoot : MonoBehaviour
     {
         photonView = GetComponent<PhotonView>();
         fpsCam = transform.parent.GetComponent<Camera>();
+        audioSrc = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -46,6 +47,7 @@ public class GunShoot : MonoBehaviour
         }
         else
             pointend = fpsCam.transform.forward * 50;
+
         if (hit.collider != null)
             InstanceBulletRPC(hit.point);
         else
@@ -85,6 +87,7 @@ public class GunShoot : MonoBehaviour
             setdamage.SetOwner(pvOwner);
         }
         animFire.Play();
+        audioSrc.PlayOneShot(audioSrc.clip);
     }
 
 }

@@ -32,7 +32,9 @@ public class HpEffects : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
         photonView.RPC("ChangeColorMesh", RpcTarget.All, 1.0f, 1.0f, 1.0f);
         reddamage.enabled = false;
+        photonView.RPC("ChangeColorMesh", RpcTarget.All, 0.0f, 1.0f, 1.0f);
     }
+
     [PunRPC]
     void ChangeColorMesh(float r, float g, float b)
     {

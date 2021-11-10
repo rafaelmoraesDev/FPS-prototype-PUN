@@ -20,9 +20,9 @@ public class RespawnOnDie : MonoBehaviour
         Hp.OnDie -= OnDie;
     }
 
-    public void OnDie(int vitime,int assassin)
+    public void OnDie(int victim,int assassin)
     {        
-        if (vitime == photonView.ViewID && photonView.IsMine)
+        if (victim == photonView.ViewID && photonView.IsMine)
         {
             GetComponent<PlayerManager>().InnactivePlayer();
             StartCoroutine(SpawnPlayer.Instance.RespawnIE(photonView.ViewID));            

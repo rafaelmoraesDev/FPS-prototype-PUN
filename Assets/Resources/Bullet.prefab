@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954d3c7dabcbb0d4d8bf7e1395fa4bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1000
-  lifeTime: 3
+  speed: 1200
+  lifeTime: 1.5
 --- !u!114 &3978731979020432660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23bdc27d60278f44cbedabfb0133379c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pvOwner: {fileID: 0}
-  _damage: 30
+  pvOwner: {fileID: 0}
+  damage: 30
   ActiveSc: 0

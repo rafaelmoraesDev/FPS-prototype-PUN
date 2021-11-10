@@ -5,7 +5,7 @@ using Photon.Pun;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 10;
-    [SerializeField] private int lifeTime = 5;
+    [SerializeField] private float lifeTime = 5;
     private Rigidbody rgbd;
     private Vector3 destiny;
     private bool activated = false;
